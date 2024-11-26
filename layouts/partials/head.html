@@ -40,7 +40,7 @@
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 
-<script type="text/javascript" src="./js/dark-mode-switch.min.js"></script> 
+<script type="text/javascript" src='{{ partial "_checkurl" "./js/dark-mode-switch.min.js" }}'></script> 
 
 <link rel="canonical" href="{{ .Permalink }}" />
 

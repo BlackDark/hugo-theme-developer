@@ -9,7 +9,7 @@
           <a href="{{ .MainLink | safeHTML }}" target="_blank">
             <img
               class="img-fluid project-image rounded shadow-sm"
-              src="{{ .Image | safeHTML }}"
+              src='{{ partial "_checkurl" .Image }}'
               alt="project name"
             />
           </a>
@@ -45,7 +45,7 @@
         >
           <img
             class="img-fluid project-image rounded shadow-sm"
-            src="{{ .Image | safeHTML }}"
+            src='{{ partial "_checkurl" .Image }}'
             alt="Visualization for project {{ .Name | safeHTML }}"
           />
         </a>

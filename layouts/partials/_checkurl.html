@@ -1,0 +1,10 @@
+{{- $url := . -}}
+{{- $returnUrl := . }}
+
+{{- if strings.HasPrefix $url "http" -}}
+  {{ $url = $url }}
+{{- else -}}
+  {{ $url = $url | relURL }}
+{{- end -}}
+
+{{ return $url }}
