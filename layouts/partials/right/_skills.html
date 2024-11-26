@@ -19,22 +19,23 @@
     <div class="content">
       <div class="skillset">
         {{ range .SkillLevel }}
-          <div class="item">
-            <h3 class="level-title">
-              {{ .Name | safeHTML }}
-              <span
-                class="level-label"
-                data-bs-toggle="tooltip"
-                data-bs-placement="left"
-                data-bs-animation="true"
-              >
-                <i class="fas fa-info-circle"></i>{{ template "mapSkillLevel" .Level }}
-              </span>
-            </h3>
-            <div class="level-bar">
-              <div class="level-bar-inner" data-bs-level="{{ .Level }}%"></div>
-            </div>
+        <div class="item">
+          <h3 class="level-title">
+            {{ .Name | safeHTML }}
+            <span
+              class="level-label"
+              data-bs-toggle="tooltip"
+              data-bs-placement="left"
+              data-bs-animation="true"
+            >
+              <i class="fas fa-info-circle"></i>{{ template "mapSkillLevel"
+              .Level }}
+            </span>
+          </h3>
+          <div class="level-bar progress">
+            <div class="progress-bar level-bar-inner" role="progressbar" style="width: {{ .Level | safeHTML }}%" aria-valuenow="{{ .Level | safeHTML }}"  aria-valuemin="0" aria-valuemax="{{ .Level | safeHTML }}"></div>
           </div>
+        </div>
         {{ end }}
       </div>
     </div>

@@ -3,50 +3,73 @@
   <div class="section-inner shadow-sm rounded">
     <h2 class="heading">Latest Projects</h2>
     <div class="content">
-      {{ if .FeaturedProject }} 
-        {{ with .FeaturedProject }}
-          <div class="item featured text-center">
-            <div class="featured-image has-ribbon">
-                <a href="{{ .MainLink | safeHTML }}" target="_blank">
-                <img class="img-fluid project-image rounded shadow-sm" src="{{ .Image | safeHTML }}" alt="project name" />
-                </a>
-                <div class="ribbon">
-                    <div class="text">New</div>
-                </div>
-            </div>
-            
-            <h3 class="title mb-3"><a href="{{ .MainLink | safeHTML }}" target="_blank">{{ .Name | safeHTML }} ({{ .Scope | safeHTML }})</a></h3>
-
-            <div class="desc text-start">                                    
-                <p>{{ .Description | safeHTML }}</p>
-            </div>   
-            <a class="btn btn-cta-secondary" href="{{ .BackMeLink | safeHTML }}" target="_blank"><i class="fas fa-thumbs-up"></i> Back my project</a>                 
-          </div>
-        {{ end }}
-        <hr class="divider" />
-      {{ end }}
-
-
-      {{ range .Projects }}
-        <div class="item row">
-          <a class="col-md-4 col-12" href="{{ .MainLink | safeHTML }}" target="_blank">
-          <img class="img-fluid project-image rounded shadow-sm" src="{{ .Image | safeHTML }}" alt="Visualization for project {{ .Name | safeHTML }}" />
+      {{ if .FeaturedProject }} {{ with .FeaturedProject }}
+      <div class="item featured text-center">
+        <div class="featured-image has-ribbon">
+          <a href="{{ .MainLink | safeHTML }}" target="_blank">
+            <img
+              class="img-fluid project-image rounded shadow-sm"
+              src="{{ .Image | safeHTML }}"
+              alt="project name"
+            />
           </a>
-          <div class="desc col-md-8 col-12">
-              <h3 class="title"><a href="{{ .MainLink | safeHTML }}" target="_blank">{{ .Name | safeHTML }}</a></h3>
-              <p class="mb-2">{{ .Description | safeHTML }}</p>
-              {{ if .Links }}
-                <p>
-                {{ range .Links }}
-                  <a class="more-link" href="{{ .Link | safeHTML }}" target="_blank"><i class="fas fa-external-link-alt"></i>{{ .Label | safeHTML }}</a>
-                {{ end }}
-                </p>
-              {{ end }}
-          </div>                        
+          <div class="ribbon">
+            <div class="text">New</div>
+          </div>
         </div>
+
+        <h3 class="title mb-3">
+          <a href="{{ .MainLink | safeHTML }}" target="_blank"
+            >{{ .Name | safeHTML }} ({{ .Scope | safeHTML }})</a
+          >
+        </h3>
+
+        <div class="desc text-start">
+          <p>{{ .Description | safeHTML }}</p>
+        </div>
+        <a
+          class="btn btn-cta-secondary"
+          href="{{ .BackMeLink | safeHTML }}"
+          target="_blank"
+          ><i class="fas fa-thumbs-up"></i> Back my project</a
+        >
+      </div>
+      {{ end }}
+      <hr class="divider" />
+      {{ end }} {{ range .Projects }}
+      <div class="item row">
+        <a
+          class="col-md-4 col-12 project-image-wrapper"
+          href="{{ .MainLink | safeHTML }}"
+          target="_blank"
+        >
+          <img
+            class="img-fluid project-image rounded shadow-sm"
+            src="{{ .Image | safeHTML }}"
+            alt="Visualization for project {{ .Name | safeHTML }}"
+          />
+        </a>
+        <div class="desc col-md-8 col-12">
+          <h3 class="title">
+            <a href="{{ .MainLink | safeHTML }}" target="_blank"
+              >{{ .Name | safeHTML }}</a
+            >
+          </h3>
+          <p class="mb-2">{{ .Description | safeHTML }}</p>
+          {{ if .Links }}
+          <p>
+            {{ range .Links }}
+            <a class="more-link" href="{{ .Link | safeHTML }}" target="_blank"
+              ><i class="fas fa-external-link-alt"></i>{{ .Label | safeHTML
+              }}</a
+            >
+            {{ end }}
+          </p>
+          {{ end }}
+        </div>
+      </div>
       {{ end }}
     </div>
   </div>
 </section>
 {{ end }}
-
