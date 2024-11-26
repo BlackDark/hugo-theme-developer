@@ -3,6 +3,20 @@
 - Base: https://github.com/xriley/Developer-Theme
 - Motivation: https://github.com/ineesalmeida/almeida-cv
 
+<p align="center">
+  <img width="80%" src=".github/images/screen.webp">
+</p>
+
+## Develop & Test
+
+We can run with NodeJS + npm
+
+```bash
+npm i
+npm run dev
+# http://localhost:1313 (if port not already blocked)
+```
+
 # Usage
 ## Install Hugo (extended)
 To use `blackdark-developer-theme` theme you need to install Hugo Extended by following https://gohugo.io/getting-started/installing/.
