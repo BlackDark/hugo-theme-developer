@@ -1,0 +1,43 @@
+
+{{ define "mapSkillLevel" }}
+  {{- $level := . -}}
+  {{- if lt $level 25 -}}
+    Beginner
+  {{- else if lt $level 50 -}}
+    Intermediate
+  {{- else if lt $level 75 -}}
+    Advanced
+  {{- else -}}
+    Expert
+  {{- end -}}
+{{ end }}
+
+{{ if .SkillLevel }}
+<aside class="skills aside section">
+  <div class="section-inner shadow-sm rounded">
+    <h2 class="heading">Skills</h2>
+    <div class="content">
+      <div class="skillset">
+        {{ range .SkillLevel }}
+          <div class="item">
+            <h3 class="level-title">
+              {{ .Name | safeHTML }}
+              <span
+                class="level-label"
+                data-bs-toggle="tooltip"
+                data-bs-placement="left"
+                data-bs-animation="true"
+              >
+                <i class="fas fa-info-circle"></i>{{ template "mapSkillLevel" .Level }}
+              </span>
+            </h3>
+            <div class="level-bar">
+              <div class="level-bar-inner" data-bs-level="{{ .Level }}%"></div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</aside>
+{{ end }}

@@ -1,0 +1,29 @@
+{{ if .Certificates }}
+<aside class="education aside section">
+  <div class="section-inner">
+    <h2 class="heading">Certificates</h2>
+    <div class="content">
+
+      {{ range .Certificates }}
+        <div class="item">
+          <h3 class="title">
+            <i class="fas fa-certificate"></i>
+            {{ .Name | safeHTML }}
+          </h3>
+          <h4 class="university">
+            {{ .From | safeHTML }} <span class="year">({{ .Date | safeHTML }})</span>
+            {{ if .Link }}
+            <a
+              class="link"
+              href="{{ .Link }}"
+              target="_blank"
+              ><i class="fas fa-external-link-alt"></i> Check
+            </a>
+            {{ end }}
+          </h4>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</aside>
+{{ end }}

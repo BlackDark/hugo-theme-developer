@@ -1,0 +1,39 @@
+{{ if .Experience }}
+<section class="experience section">
+  <div class="section-inner shadow-sm rounded">
+    <h2 class="heading">Work Experience</h2>
+    <div class="content">
+      {{ range .Experience }}
+        <div class="item">
+          <h3 class="title">
+            {{ .Title | safeHTML }} -
+            <span class="place"
+              ><a
+                href="https://www.raydak.de"
+                target="_blank"
+                rel="noopener"
+                >{{ .Employer | safeHTML }}</a
+              ></span
+            >
+            <span class="year">({{ .Date | safeHTML }})</span>
+          </h3>
+
+          <p>{{ .Summary | safeHTML }}</p>
+
+          <ul>
+            {{ range .Details }}
+              <li>{{ . | safeHTML }}</li>
+            {{ end }}
+          </ul>
+          <div class="text-end fs-6">
+            {{ range .Badges }}
+            <span class="badge rounded-pill text-bg-secondary">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+

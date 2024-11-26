@@ -1,0 +1,51 @@
+<header class="header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col">
+          <img
+            class="profile-image img-fluid float-start rounded-circle"
+            src="{{ .BasicInfo.Photo }}"
+            alt="Image of {{ .BasicInfo.FirstName }} {{ .BasicInfo.LastName }}"
+          />
+          <div class="profile-content">
+            <h1 class="name">
+              {{ .BasicInfo.FirstName }} {{ .BasicInfo.LastName }}
+            </h1>
+            <h2 class="desc">{{ .BasicInfo.Role }}</h2>
+            {{ if .BasicInfo.SocialLinks }}
+            <ul class="social list-inline">
+              {{ range .BasicInfo.SocialLinks }}
+              <li class="list-inline-item">
+                <a href="{{ .HRef }}" target="_blank">
+                  <i class="{{ .Icon }}"></i>
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+            {{ end }}
+          </div>
+        </div>
+        <div class="col-12 col-md-auto">
+          <div class="dark-mode-switch d-flex">
+            <div class="form-check form-switch mx-auto mx-md-0">
+              <input
+                type="checkbox"
+                class="form-check-input me-2"
+                id="darkSwitch"
+              />
+              <label class="custom-control-label" for="darkSwitch"
+                >Dark Mode</label
+              >
+            </div>
+          </div>
+          <a
+            class="btn btn-cta-primary"
+            href="{{ .BasicInfo.Contact }}"
+            target="_blank"
+            ><i class="fas fa-paper-plane"></i> Contact Me</a
+          >
+        </div>
+      </div>
+    </div>
+  </header>
+  

@@ -1,0 +1,12 @@
+{{ if .Profile }}
+<section class="about section">
+    <div class="section-inner shadow-sm rounded">
+      <h2 class="heading">{{ i18n "profile" }}</h2>
+      <div class="content">
+        <p>
+            {{ .Profile | safeHTML | emojify }} 
+        </p>
+      </div>
+    </div>
+</section>
+{{ end }}

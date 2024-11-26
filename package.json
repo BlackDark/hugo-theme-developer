@@ -1,0 +1,21 @@
+{
+  "name": "hugo-theme-developer-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "hugo-bin": "^0.136.0"
+  },
+  "scripts": {
+    "build": "hugo --minify",
+    "clean": "rimraf public/",
+    "dev": "hugo server",
+    "start": "pnpm dev"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
+  }
+}

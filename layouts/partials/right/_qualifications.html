@@ -1,0 +1,20 @@
+{{ if .Qualifications }}
+<aside class="education aside section">
+  <div class="section-inner">
+    <h2 class="heading">Qualifications</h2>
+    <div class="content">
+      {{ range .Qualifications }}
+        <div class="item">
+          <h3 class="title">
+            <i class="fas fa-graduation-cap"></i>
+            {{ .Name | safeHTML }}
+          </h3>
+          <h4 class="university">
+            {{ .From | safeHTML }} <span class="year">({{ .Date | safeHTML }})</span>
+          </h4>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</aside>
+{{ end }}
